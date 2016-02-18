@@ -1,0 +1,11 @@
+<h1>What's on your mind?</h1>
+
+<%= form_for @post, url: create_post_path(@post), method: 'post' do |f| %>
+
+  <%= f.label :message, "Message" %>
+  <br>
+  <%= f.text_area :message %>
+  <br>
+
+  <%= f.submit "Create" %>
+<% end %>
