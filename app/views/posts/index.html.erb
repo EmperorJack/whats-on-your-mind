@@ -1,7 +1,5 @@
 
-<marquee>under construction!</marquee>
-
-<h1>Posts</h1>
+<h1><%= @person ? @person : "All" %> Posts</h1>
 
 <% @posts.each do |post| %>
   <hr>
@@ -11,5 +9,3 @@
 <hr>
 
 <%= @posts.count %>
-
-<marquee>under construction!</marquee>

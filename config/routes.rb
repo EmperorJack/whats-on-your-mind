@@ -5,6 +5,10 @@ Rails.application.routes.draw do
 
   get 'posts' => 'posts#index'
 
+  get 'anon'     => 'posts#anon'
+  get 'avatar'   => 'posts#avatar'
+  get 'profile'  => 'posts#profile'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

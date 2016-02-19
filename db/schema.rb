@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160218064059) do
+ActiveRecord::Schema.define(version: 20160219095156) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20160218064059) do
     t.text     "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "anon_tagged"
+    t.boolean  "avatar_tagged"
+    t.boolean  "profile_tagged"
   end
 
 end
