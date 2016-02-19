@@ -2,10 +2,16 @@
 
 <%= form_for @post, url: create_post_path(@post), method: 'post' do |f| %>
 
-  <%= f.label :message, "Message" %>
+  <%= f.label :message, "Message", class: "a" %>
   <br>
   <%= f.text_area :message %>
   <br>
 
   <%= f.submit "Create" %>
 <% end %>
+
+<style>
+  .a {
+    background-color: red;
+  }
+</style>
