@@ -3,9 +3,15 @@
 
 <% @posts.each do |post| %>
   <hr>
-  <p><em><%= distance_of_time_in_words_to_now(post.created_at) %></em></p>
+  <p><em><%= distance_of_time_in_words_to_now(post.created_at) %> ago</em></p>
   <p><%= post.message %></p>
 <% end %>
 <hr>
 
 <%= @posts.count %>
+
+<script>
+  setTimeout(function() {
+    location.reload(1);
+  }, 5000);
+</script>
