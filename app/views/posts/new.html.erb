@@ -1,13 +1,13 @@
+<div class="main_form">
 <h1>What's on your mind?</h1>
 
 <%= form_for @post, url: create_post_path(@post), method: 'post' do |f| %>
 
-  <%= f.label :message, "Message", class: "a" %>
   <br>
-  <%= f.text_area :message %>
+  <%= f.text_area :message , id: "textarea" , onkeyup: "textAreaAdjust(this); limitChars(this)" %>
   <br>
 
-  <%= f.submit "Create" %>
+  <%= f.submit "Create", id: "submit" %>
 <% end %>
 
 <style>
@@ -15,3 +15,25 @@
     background-color: red;
   }
 </style>
+</div>
+
+<script>
+function textAreaAdjust(o) {
+    o.style.height = "1px";
+    o.style.height = (10+o.scrollHeight)+"px";
+}
+var characterLimit = 80;
+function limitChars(who){
+    if(who){
+        var L = who.value.length;
+        if(L> characterLimit - 5){
+            who.style.color= 'orange';
+        }
+        else who.style.color= ''
+        if(L> characterLimit){
+            who.value= who.value.substring(0, characterLimit);
+            who.style.color= '';
+        }
+    }
+}
+</script>
