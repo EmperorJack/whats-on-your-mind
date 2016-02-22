@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'avatar'   => 'posts#avatar'
   get 'profile'  => 'posts#profile'
 
+  get 'posts-feed' => 'posts#feed'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

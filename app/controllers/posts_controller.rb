@@ -35,6 +35,14 @@ class PostsController < ApplicationController
     render :new
   end
 
+  def feed
+    if Post.last
+      render :json => Post.last
+    else
+      render :json => { message: "" }
+    end
+  end
+
   private
 
     def post_params

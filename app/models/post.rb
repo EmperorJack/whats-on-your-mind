@@ -13,6 +13,8 @@ class Post < ActiveRecord::Base
     ["anon", "avatar", "profile"].each_with_index do |person, index|
       if message.match(/##{person}/)
         update_attribute("#{person}_tagged".to_sym, true)
+      else
+        update_attribute("#{person}_tagged".to_sym, false)
       end
     end
   end
