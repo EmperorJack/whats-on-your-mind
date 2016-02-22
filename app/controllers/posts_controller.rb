@@ -36,11 +36,19 @@ class PostsController < ApplicationController
   end
 
   def feed
-    if Post.last
-      render :json => Post.last
-    else
-      render :json => { message: "" }
+    last_post_id = params[:last_post_id]
+
+    response = []
+
+    if Post.count > 0
+
+      Post.where("id > ?", last_post_id).each do |post|
+        response << post
+      end
+
     end
+
+    render :json => response
   end
 
   private
