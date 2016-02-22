@@ -13,7 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
+body{
+	font-family: Helvetica;
+}
 .main_form {
 	width: 80%;
 	height: 90%;
@@ -24,20 +26,22 @@
 	margin-top: 10%;
 }
 h1{
-	font-family: Helvetica;
-	font-size: 4em;
+	font-size: 5em;
+}
+h2{
+	font-size: 2em;
 }
 
 label{
 	color:blue;
 }
 
-textarea{
+#textarea{
 	width:95%;
 	border:2px solid;
 	border-color: #3498DB;
 	border-radius: 4px;
-	font-size: 2em;
+	font-size: 3em;
 	padding-top: 30px;
 	text-align: center;
 	overflow:hidden;
@@ -48,9 +52,8 @@ textarea{
 }
 
 #submit{
-	font-size: 2em;
+	font-size: 5em;
 	margin: 20px;
-
 	background-color: #3498DB; /* blue */
  	border: none;
  	color: white;
@@ -58,5 +61,8 @@ textarea{
  	text-align: center;
  	text-decoration: none;
  	display: inline-block;
- 	font-size: 16px;
+	border-radius:4px;
+}
+.anon{
+	color:green;
 }
