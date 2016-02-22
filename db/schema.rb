@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219095156) do
+ActiveRecord::Schema.define(version: 20160222101529) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20160219095156) do
     t.boolean  "anon_tagged"
     t.boolean  "avatar_tagged"
     t.boolean  "profile_tagged"
+    t.integer  "night_posted"
   end
 
 end

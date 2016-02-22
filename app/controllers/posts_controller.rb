@@ -1,29 +1,28 @@
 class PostsController < ApplicationController
 
   def index
-    @posts = Post.all.latest
+    @posts = Post.tonight.latest
   end
 
   def anon
     @person = "Anon"
-    @posts = Post.anon.latest
+    @posts = Post.tonight.anon.latest
     render :index
   end
 
   def avatar
     @person = "Avatar"
-    @posts = Post.avatar.latest
+    @posts = Post.tonight.avatar.latest
     render :index
   end
 
   def profile
     @person = "Profile"
-    @posts = Post.profile.latest
+    @posts = Post.tonight.profile.latest
     render :index
   end
 
   def new
-    @posts = Post.anon.latest
     @post = Post.new
   end
 
