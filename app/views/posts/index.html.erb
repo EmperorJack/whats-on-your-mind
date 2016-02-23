@@ -3,7 +3,7 @@
 
 <% @posts.each do |post| %>
   <hr>
-  <p><em><%= distance_of_time_in_words_to_now(post.created_at) %> ago</em></p>
+  <p style="font-size:1em"><em><%= distance_of_time_in_words_to_now(post.created_at) %> ago</em></p>
   <p><%= post.message %></p>
 <% end %>
 <hr>

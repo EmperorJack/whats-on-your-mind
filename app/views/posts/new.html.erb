@@ -1,9 +1,9 @@
 <div class="main_form">
 <h1>What's on your mind?</h1>
 <h2>Tag a character using these tags <br><strong>#anon &nbsp; #avatar &nbsp; #profile</strong><br></h2>
-<div id="textarea" contenteditable="true" onkeyup="checkValid(this);"></div>
+<div id="textarea" contenteditable="true" onkeydown="" onkeyup="textAreaAdjust(this); limitChars(this);"></div>
 <%= form_for @post, url: create_post_path(@post),method: 'post' do |f| %>
-
+<div id="charsLeft"></div>
   <br>
   <%= f.text_area :message ,style: "display:none", id: "oldTextArea" %>
   <br>
@@ -15,7 +15,7 @@
 
 <script>
 function checkValid(o){
-	highlightTags(o);	
+	//highlightTags(o);	
 	limitChars(o);
 	textAreaAdjust(o);
 }
@@ -23,7 +23,9 @@ function textAreaAdjust(o) {
     o.style.height = "1px";
     o.style.height = (10+o.scrollHeight)+"px";
 }
-var characterLimit = 80;
+var characterLimit = 140;
+var input = $(".textarea");
+
 function limitChars(who){
     if(who){
         var L = who.innerText.length;
@@ -31,14 +33,13 @@ function limitChars(who){
             who.style.color= 'orange';
         }
         else who.style.color= ''
-        if(L> characterLimit){
-            who.innerText= who.innerText.substring(0, characterLimit);
-            who.style.color= '';
+	var text = $(who).text().substring(0,characterLimit);
+        if(L >= characterLimit ){
+            $(who).focus().text("").text(text);    //innerText= who.innerText.substring(0, characterLimit);
+            who.style.color= 'red';
         }
+	$("#charsLeft").text(characterLimit - text.length);
     }
-}
-function highlightTags(o){
-
 }
 function getContent(){
 	document.getElementById('oldTextArea').value = document.getElementById('textarea').innerText;
