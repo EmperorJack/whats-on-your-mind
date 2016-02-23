@@ -6,19 +6,19 @@ class PostsController < ApplicationController
 
   def anon
     @person = "Anon"
-    @posts = Post.tonight.anon.latest
+    @posts = (Post.tonight.anon + Post.tonight.no_tags).sort! { |a,b| b.created_at <=> a.created_at }
     render :index
   end
 
   def avatar
     @person = "Avatar"
-    @posts = Post.tonight.avatar.latest
+    @posts = (Post.tonight.avatar + Post.tonight.no_tags).sort! { |a,b| b.created_at <=> a.created_at }
     render :index
   end
 
   def profile
     @person = "Profile"
-    @posts = Post.tonight.profile.latest
+    @posts = (Post.tonight.profile + Post.tonight.no_tags).sort! { |a,b| b.created_at <=> a.created_at }
     render :index
   end
 

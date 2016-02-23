@@ -4,6 +4,7 @@ class Post < ActiveRecord::Base
   scope :anon,    -> { where(anon_tagged: true) }
   scope :avatar,  -> { where(avatar_tagged: true) }
   scope :profile, -> { where(profile_tagged: true) }
+  scope :no_tags, -> { where(anon_tagged: false).where(avatar_tagged: false).where(profile_tagged: false) }
   scope :tonight, -> { where(night_posted: Raster::Application::CURRENT_NIGHT) }
 
   validates_presence_of :message
