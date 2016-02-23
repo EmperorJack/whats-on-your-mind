@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
 
   def extract_hashed_persons
     ["anon", "avatar", "profile"].each_with_index do |person, index|
-      if message.match(/##{person}/)
+      if message.downcase.match(/##{person}/)
         update_attribute("#{person}_tagged".to_sym, true)
       else
         update_attribute("#{person}_tagged".to_sym, false)
