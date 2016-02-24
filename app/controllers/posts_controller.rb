@@ -41,7 +41,7 @@ class PostsController < ApplicationController
 
     if Post.count > 0
 
-      Post.where("id > ?", last_post_id).each do |post|
+      Post.tonight.where("id > ?", last_post_id).each do |post|
         response << post
       end
 
